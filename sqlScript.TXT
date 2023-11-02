@@ -1,0 +1,811 @@
+-- public."Images" definition
+
+-- Drop table
+
+-- DROP TABLE public."Images";
+
+CREATE TABLE public."Images" (
+	image_id int4 NOT NULL,
+	image_name varchar(255) NOT NULL,
+	image_raw bytea NOT NULL,
+	CONSTRAINT "Images_pkey" PRIMARY KEY (image_id)
+);
+
+
+-- public.address definition
+
+-- Drop table
+
+-- DROP TABLE public.address;
+
+CREATE TABLE public.address (
+	city_id int4 NOT NULL,
+	street_id int4 NOT NULL,
+	house int4 NULL,
+	flat int4 NULL,
+	housing varchar NULL,
+	address_id int4 NOT NULL,
+	CONSTRAINT address_pk PRIMARY KEY (address_id)
+);
+
+
+-- public.company definition
+
+-- Drop table
+
+-- DROP TABLE public.company;
+
+CREATE TABLE public.company (
+	company_id int4 NOT NULL,
+	company_name varchar NOT NULL,
+	CONSTRAINT сompany_pk PRIMARY KEY (company_id)
+);
+
+
+-- public.competence definition
+
+-- Drop table
+
+-- DROP TABLE public.competence;
+
+CREATE TABLE public.competence (
+	competence_id int4 NOT NULL,
+	competation_abbr varchar NOT NULL,
+	competation_description varchar NOT NULL,
+	know varchar NULL,
+	can varchar NULL,
+	own varchar NULL,
+	CONSTRAINT competence_pk PRIMARY KEY (competence_id)
+);
+
+
+-- public.constant definition
+
+-- Drop table
+
+-- DROP TABLE public.constant;
+
+CREATE TABLE public.constant (
+	start_education date NULL
+);
+
+
+-- public.control_type definition
+
+-- Drop table
+
+-- DROP TABLE public.control_type;
+
+CREATE TABLE public.control_type (
+	control_type_id int4 NOT NULL,
+	control_type_name varchar NOT NULL,
+	CONSTRAINT controltype_pk PRIMARY KEY (control_type_id)
+);
+
+
+-- public.discipline definition
+
+-- Drop table
+
+-- DROP TABLE public.discipline;
+
+CREATE TABLE public.discipline (
+	discipline_id int4 NOT NULL,
+	discipline_name varchar NOT NULL,
+	CONSTRAINT discipline_pk PRIMARY KEY (discipline_id)
+);
+
+
+-- public."document" definition
+
+-- Drop table
+
+-- DROP TABLE public."document";
+
+CREATE TABLE public."document" (
+	document_id int4 NOT NULL,
+	document_path bytea NOT NULL,
+	document_name varchar NOT NULL,
+	CONSTRAINT document_pk PRIMARY KEY (document_id)
+);
+
+
+-- public.document_type definition
+
+-- Drop table
+
+-- DROP TABLE public.document_type;
+
+CREATE TABLE public.document_type (
+	document_type_id int4 NOT NULL,
+	document_type_name varchar NOT NULL,
+	CONSTRAINT documenttype_pk PRIMARY KEY (document_type_id)
+);
+
+
+-- public.education_level definition
+
+-- Drop table
+
+-- DROP TABLE public.education_level;
+
+CREATE TABLE public.education_level (
+	educationlevel_id int4 NOT NULL,
+	educationlevel_name varchar NOT NULL,
+	CONSTRAINT educationlevel_pk PRIMARY KEY (educationlevel_id)
+);
+
+
+-- public.family_connection definition
+
+-- Drop table
+
+-- DROP TABLE public.family_connection;
+
+CREATE TABLE public.family_connection (
+	family_connection_id int4 NOT NULL,
+	fconnection_name varchar NOT NULL,
+	CONSTRAINT family_connection_pk PRIMARY KEY (family_connection_id)
+);
+
+
+-- public.education_form definition
+
+-- Drop table
+
+-- DROP TABLE public.education_form;
+
+CREATE TABLE public.education_form (
+	education_form_id serial4 NOT NULL,
+	education_form varchar NOT NULL,
+	CONSTRAINT education_form_pk PRIMARY KEY (education_form_id)
+);
+
+
+-- public.images definition
+
+-- Drop table
+
+-- DROP TABLE public.images;
+
+CREATE TABLE public.images (
+	image_id serial4 NOT NULL,
+	image_name varchar(255) NOT NULL,
+	image_raw bytea NOT NULL,
+	CONSTRAINT images_pkey PRIMARY KEY (image_id)
+);
+
+
+-- public.news definition
+
+-- Drop table
+
+-- DROP TABLE public.news;
+
+CREATE TABLE public.news (
+	datenews date NOT NULL,
+	news_id int4 NOT NULL,
+	short_news varchar NULL,
+	long_news varchar NOT NULL,
+	news_header varchar NOT NULL,
+	CONSTRAINT news_pk PRIMARY KEY (news_id)
+);
+
+
+-- public.people definition
+
+-- Drop table
+
+-- DROP TABLE public.people;
+
+CREATE TABLE public.people (
+	people_id int4 NOT NULL,
+	first_name varchar(50) NOT NULL,
+	last_name varchar(50) NOT NULL,
+	patronymic varchar(50) NOT NULL,
+	mobile_phone varchar(14) NOT NULL,
+	home_phone varchar(14) NULL,
+	email varchar(25) NULL,
+	pass varchar(25) NULL,
+	seniority float4 NOT NULL,
+	gender bpchar(1) NOT NULL,
+	birthdate date NULL,
+	citizenship varchar NULL,
+	image int4 NULL,
+	CONSTRAINT people_pk PRIMARY KEY (people_id)
+);
+
+
+-- public."position" definition
+
+-- Drop table
+
+-- DROP TABLE public."position";
+
+CREATE TABLE public."position" (
+	positionid int4 NOT NULL,
+	positionname varchar(255) NOT NULL,
+	CONSTRAINT position_pk PRIMARY KEY (positionid)
+);
+
+
+-- public.roles definition
+
+-- Drop table
+
+-- DROP TABLE public.roles;
+
+CREATE TABLE public.roles (
+	id int4 NOT NULL,
+	"name" varchar(255) NULL,
+	"createdAt" timestamptz NOT NULL,
+	"updatedAt" timestamptz NOT NULL,
+	CONSTRAINT roles_pkey PRIMARY KEY (id)
+);
+
+
+-- public.student definition
+
+-- Drop table
+
+-- DROP TABLE public.student;
+
+CREATE TABLE public.student (
+	student_id int4 NOT NULL,
+	first_name varchar NOT NULL,
+	last_name varchar NOT NULL,
+	patronymic varchar NOT NULL,
+	gradebook varchar NOT NULL,
+	gender bpchar(1) NOT NULL,
+	birthdate date NOT NULL,
+	nationality int4 NOT NULL,
+	phone varchar NOT NULL,
+	email varchar NOT NULL,
+	person_number varchar NULL,
+	passport int4 NULL,
+	address int4 NOT NULL,
+	image_fk int4 NULL,
+	"password" varchar NULL,
+	CONSTRAINT student_pk PRIMARY KEY (student_id)
+);
+
+
+-- public.study_form definition
+
+-- Drop table
+
+-- DROP TABLE public.study_form;
+
+CREATE TABLE public.study_form (
+	study_form_id int4 NOT NULL,
+	study_form_name varchar NOT NULL,
+	CONSTRAINT studyform_pk PRIMARY KEY (study_form_id)
+);
+
+
+-- public.umk definition
+
+-- Drop table
+
+-- DROP TABLE public.umk;
+
+CREATE TABLE public.umk (
+	purpose varchar NOT NULL,
+	task varchar NULL,
+	umk_id int4 NOT NULL,
+	CONSTRAINT umk_pk PRIMARY KEY (umk_id)
+);
+
+
+-- public.unit_type definition
+
+-- Drop table
+
+-- DROP TABLE public.unit_type;
+
+CREATE TABLE public.unit_type (
+	unit_type_id int4 NOT NULL,
+	unit_type_description varchar NOT NULL,
+	CONSTRAINT unit_type_pk PRIMARY KEY (unit_type_id)
+);
+
+
+-- public.users definition
+
+-- Drop table
+
+-- DROP TABLE public.users;
+
+CREATE TABLE public.users (
+	id serial4 NOT NULL,
+	username varchar(255) NULL,
+	email varchar(255) NULL,
+	"password" varchar(255) NULL,
+	"createdAt" timestamptz NOT NULL,
+	"updatedAt" timestamptz NOT NULL,
+	CONSTRAINT users_pkey PRIMARY KEY (id)
+);
+
+
+-- public.qualification definition
+
+-- Drop table
+
+-- DROP TABLE public.qualification;
+
+CREATE TABLE public.qualification (
+	qualification_id serial4 NOT NULL,
+	qualification_name varchar NOT NULL,
+	CONSTRAINT qualification_pk PRIMARY KEY (qualification_id)
+);
+
+
+-- public.auditory definition
+
+-- Drop table
+
+-- DROP TABLE public.auditory;
+
+CREATE TABLE public.auditory (
+	auditory_id serial4 NOT NULL,
+	name_auditory varchar NOT NULL,
+	count_computer int4 NULL,
+	number_place int4 NULL,
+	is_enable_projector bit(1) NULL,
+	is_whiteboard bit(1) NULL,
+	CONSTRAINT auditory_pk PRIMARY KEY (auditory_id)
+);
+
+
+-- public.department definition
+
+-- Drop table
+
+-- DROP TABLE public.department;
+
+CREATE TABLE public.department (
+	departmentid int4 NOT NULL,
+	departmentname varchar(255) NULL,
+	departmentaddress varchar(255) NULL,
+	webaddress varchar(255) NULL,
+	departmentdocument int4 NULL,
+	parent int4 NULL,
+	CONSTRAINT department_pk PRIMARY KEY (departmentid),
+	CONSTRAINT department_fk FOREIGN KEY (parent) REFERENCES public.department(departmentid),
+	CONSTRAINT document_fk FOREIGN KEY (departmentdocument) REFERENCES public."document"(document_id)
+);
+
+
+-- public.education definition
+
+-- Drop table
+
+-- DROP TABLE public.education;
+
+CREATE TABLE public.education (
+	education_id int4 NOT NULL,
+	people_id int4 NOT NULL,
+	education_level_id int4 NOT NULL,
+	CONSTRAINT education_pk PRIMARY KEY (education_id),
+	CONSTRAINT education_fk FOREIGN KEY (education_level_id) REFERENCES public.education_level(educationlevel_id),
+	CONSTRAINT people_fk FOREIGN KEY (people_id) REFERENCES public.people(people_id)
+);
+
+
+-- public.head_department definition
+
+-- Drop table
+
+-- DROP TABLE public.head_department;
+
+CREATE TABLE public.head_department (
+	departmentid int4 NOT NULL,
+	peopleid int4 NOT NULL,
+	startdate date NOT NULL,
+	enddate date NULL,
+	positionid int4 NOT NULL,
+	CONSTRAINT headdepartment_pk PRIMARY KEY (departmentid, peopleid),
+	CONSTRAINT headdepartment_fk FOREIGN KEY (departmentid) REFERENCES public.department(departmentid),
+	CONSTRAINT headpeple_fk FOREIGN KEY (peopleid) REFERENCES public.people(people_id),
+	CONSTRAINT position_fk FOREIGN KEY (positionid) REFERENCES public."position"(positionid)
+);
+
+
+-- public.image_news definition
+
+-- Drop table
+
+-- DROP TABLE public.image_news;
+
+CREATE TABLE public.image_news (
+	image int4 NOT NULL,
+	news int4 NOT NULL,
+	CONSTRAINT imagenews_fk FOREIGN KEY (news) REFERENCES public.news(news_id)
+);
+
+
+-- public.passport definition
+
+-- Drop table
+
+-- DROP TABLE public.passport;
+
+CREATE TABLE public.passport (
+	passport_id int4 NOT NULL,
+	series varchar NOT NULL,
+	"number" varchar NOT NULL,
+	company_issued int4 NOT NULL,
+	data_issued date NOT NULL,
+	code_company varchar NOT NULL,
+	CONSTRAINT passport_pk PRIMARY KEY (passport_id),
+	CONSTRAINT company_fk FOREIGN KEY (company_issued) REFERENCES public.company(company_id)
+);
+
+
+-- public.person_document definition
+
+-- Drop table
+
+-- DROP TABLE public.person_document;
+
+CREATE TABLE public.person_document (
+	person_document_id int4 NOT NULL,
+	document_type int4 NOT NULL,
+	series varchar NOT NULL,
+	"number" varchar NOT NULL,
+	document_data date NOT NULL,
+	organization int4 NULL,
+	people int4 NOT NULL,
+	CONSTRAINT persondocument_pk PRIMARY KEY (person_document_id),
+	CONSTRAINT company_fk FOREIGN KEY (organization) REFERENCES public.company(company_id),
+	CONSTRAINT people_fk FOREIGN KEY (people) REFERENCES public.people(people_id),
+	CONSTRAINT persondocument_fk FOREIGN KEY (document_type) REFERENCES public.document_type(document_type_id)
+);
+
+
+-- public.position_people definition
+
+-- Drop table
+
+-- DROP TABLE public.position_people;
+
+CREATE TABLE public.position_people (
+	position_people_id int4 NOT NULL,
+	people_id int4 NOT NULL,
+	position_id int4 NOT NULL,
+	date_assingnment varchar NOT NULL,
+	type_assingnment int4 NOT NULL,
+	CONSTRAINT positionpeople_pk PRIMARY KEY (position_people_id),
+	CONSTRAINT position_fk FOREIGN KEY (position_people_id) REFERENCES public."position"(positionid),
+	CONSTRAINT positionpeople_fk FOREIGN KEY (people_id) REFERENCES public.people(people_id)
+);
+
+
+-- public.section_umk definition
+
+-- Drop table
+
+-- DROP TABLE public.section_umk;
+
+CREATE TABLE public.section_umk (
+	umk int4 NOT NULL,
+	"section" varchar NOT NULL,
+	section_umk_id int4 NOT NULL,
+	description varchar NULL,
+	CONSTRAINT section_umk_pk PRIMARY KEY (section_umk_id),
+	CONSTRAINT section_umk_fk FOREIGN KEY (umk) REFERENCES public.umk(umk_id)
+);
+
+
+-- public.speciality definition
+
+-- Drop table
+
+-- DROP TABLE public.speciality;
+
+CREATE TABLE public.speciality (
+	speciality_id int4 NOT NULL,
+	speciality_name varchar NOT NULL,
+	code varchar NOT NULL,
+	department int4 NOT NULL,
+	education_level int4 NULL,
+	specialization varchar NULL,
+	qualification int4 NULL,
+	CONSTRAINT speciality_pk PRIMARY KEY (speciality_id),
+	CONSTRAINT department_fk FOREIGN KEY (department) REFERENCES public.department(departmentid) ON DELETE RESTRICT ON UPDATE CASCADE,
+	CONSTRAINT qualification_fk FOREIGN KEY (qualification) REFERENCES public.qualification(qualification_id) ON DELETE RESTRICT ON UPDATE CASCADE,
+	CONSTRAINT speciality_fk FOREIGN KEY (education_level) REFERENCES public.education_level(educationlevel_id) ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+
+-- public.unit_section definition
+
+-- Drop table
+
+-- DROP TABLE public.unit_section;
+
+CREATE TABLE public.unit_section (
+	unit_id int4 NOT NULL,
+	description_short varchar NOT NULL,
+	unit_type int4 NOT NULL,
+	description_long varchar NULL,
+	section_umk int4 NOT NULL,
+	CONSTRAINT newtable_pk PRIMARY KEY (unit_id),
+	CONSTRAINT umk_section_fk FOREIGN KEY (section_umk) REFERENCES public.section_umk(section_umk_id),
+	CONSTRAINT unit_section_fk FOREIGN KEY (unit_type) REFERENCES public.unit_type(unit_type_id)
+);
+
+
+-- public.user_roles definition
+
+-- Drop table
+
+-- DROP TABLE public.user_roles;
+
+CREATE TABLE public.user_roles (
+	"createdAt" timestamptz NOT NULL,
+	"updatedAt" timestamptz NOT NULL,
+	"roleId" int4 NOT NULL,
+	"userId" int4 NOT NULL,
+	CONSTRAINT user_roles_pkey1 PRIMARY KEY ("roleId", "userId"),
+	CONSTRAINT "user_roles_roleId_fkey" FOREIGN KEY ("roleId") REFERENCES public.roles(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT "user_roles_userId_fkey" FOREIGN KEY ("userId") REFERENCES public.users(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+-- public.work_record definition
+
+-- Drop table
+
+-- DROP TABLE public.work_record;
+
+CREATE TABLE public.work_record (
+	workrecord_id int4 NOT NULL,
+	people_id int4 NOT NULL,
+	company_id int4 NOT NULL,
+	"position" int4 NOT NULL,
+	start_date date NOT NULL,
+	end_date date NULL,
+	CONSTRAINT workrecord_pk PRIMARY KEY (workrecord_id),
+	CONSTRAINT people_fk FOREIGN KEY (people_id) REFERENCES public.people(people_id),
+	CONSTRAINT position_fk FOREIGN KEY ("position") REFERENCES public."position"(positionid),
+	CONSTRAINT workrecord_fk FOREIGN KEY (company_id) REFERENCES public.company(company_id)
+);
+
+
+-- public.recruitment definition
+
+-- Drop table
+
+-- DROP TABLE public.recruitment;
+
+CREATE TABLE public.recruitment (
+	"year" date NOT NULL,
+	speciality int4 NOT NULL,
+	education_form int4 NOT NULL,
+	plan int4 NOT NULL,
+	fact int4 NULL,
+	duration numeric NOT NULL,
+	recruitment_id serial4 NOT NULL,
+	exams int4 NOT NULL,
+	CONSTRAINT recruitment_pk PRIMARY KEY (recruitment_id),
+	CONSTRAINT education_form_fk FOREIGN KEY (education_form) REFERENCES public.education_form(education_form_id) ON DELETE RESTRICT ON UPDATE CASCADE,
+	CONSTRAINT speciality_fk FOREIGN KEY (speciality) REFERENCES public.speciality(speciality_id) ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+
+-- public.education_standart definition
+
+-- Drop table
+
+-- DROP TABLE public.education_standart;
+
+CREATE TABLE public.education_standart (
+	education_standart_id int4 NOT NULL,
+	speciality int4 NOT NULL,
+	start_date date NOT NULL,
+	"document" int4 NOT NULL,
+	secret bool NOT NULL,
+	CONSTRAINT educationstandart_pk PRIMARY KEY (education_standart_id),
+	CONSTRAINT document_fk FOREIGN KEY ("document") REFERENCES public."document"(document_id),
+	CONSTRAINT speciality_fk FOREIGN KEY (speciality) REFERENCES public.speciality(speciality_id)
+);
+
+
+-- public."group" definition
+
+-- Drop table
+
+-- DROP TABLE public."group";
+
+CREATE TABLE public."group" (
+	group_id int4 NOT NULL,
+	group_name varchar NOT NULL,
+	speciality int4 NOT NULL,
+	study_form int4 NOT NULL,
+	CONSTRAINT group_pk PRIMARY KEY (group_id),
+	CONSTRAINT group_fk FOREIGN KEY (speciality) REFERENCES public.speciality(speciality_id) ON DELETE RESTRICT ON UPDATE RESTRICT,
+	CONSTRAINT study_fk FOREIGN KEY (study_form) REFERENCES public.study_form(study_form_id)
+);
+
+
+-- public.student_document definition
+
+-- Drop table
+
+-- DROP TABLE public.student_document;
+
+CREATE TABLE public.student_document (
+	student int4 NULL,
+	"group" int4 NULL,
+	document_type int4 NOT NULL,
+	"document" int4 NOT NULL,
+	student_document_id int4 NOT NULL,
+	CONSTRAINT student_document_pk PRIMARY KEY (student_document_id),
+	CONSTRAINT document_fk_1 FOREIGN KEY ("document") REFERENCES public."document"(document_id),
+	CONSTRAINT document_type_fk FOREIGN KEY (document_type) REFERENCES public.document_type(document_type_id),
+	CONSTRAINT group_fk FOREIGN KEY ("group") REFERENCES public."group"(group_id),
+	CONSTRAINT student_fk FOREIGN KEY (student) REFERENCES public.student(student_id)
+);
+
+
+-- public.academic_plan definition
+
+-- Drop table
+
+-- DROP TABLE public.academic_plan;
+
+CREATE TABLE public.academic_plan (
+	plan_id int4 NOT NULL,
+	"document" int4 NOT NULL,
+	"group" int4 NOT NULL,
+	"begin" date NOT NULL,
+	CONSTRAINT academicplan_pk PRIMARY KEY (plan_id),
+	CONSTRAINT document_fk FOREIGN KEY ("document") REFERENCES public."document"(document_id),
+	CONSTRAINT group_fk FOREIGN KEY ("group") REFERENCES public."group"(group_id)
+);
+
+
+-- public.ap_discipline definition
+
+-- Drop table
+
+-- DROP TABLE public.ap_discipline;
+
+CREATE TABLE public.ap_discipline (
+	academic_plan int4 NOT NULL,
+	discipline int4 NOT NULL,
+	semestr bpchar(1) NOT NULL,
+	lectures int4 NOT NULL,
+	practic int4 NOT NULL,
+	laboratory int4 NOT NULL,
+	kurs_work bool NOT NULL,
+	kurs_project bool NOT NULL,
+	"self-study" int4 NOT NULL,
+	control_type int4 NOT NULL,
+	control_type_hour int4 NULL,
+	umk int4 NOT NULL,
+	code varchar NOT NULL,
+	zet int4 NOT NULL,
+	kafedra int4 NOT NULL,
+	competition varchar NULL,
+	CONSTRAINT apdiscipline_pk PRIMARY KEY (academic_plan, discipline, semestr),
+	CONSTRAINT academic_plan_fk FOREIGN KEY (academic_plan) REFERENCES public.academic_plan(plan_id),
+	CONSTRAINT ap_discipline_fk FOREIGN KEY (umk) REFERENCES public.umk(umk_id),
+	CONSTRAINT control_type_fk FOREIGN KEY (control_type) REFERENCES public.control_type(control_type_id),
+	CONSTRAINT discipline_fk FOREIGN KEY (discipline) REFERENCES public.discipline(discipline_id),
+	CONSTRAINT kafedra_fk FOREIGN KEY (kafedra) REFERENCES public.department(departmentid)
+);
+
+
+-- public.competence_apdiscipline definition
+
+-- Drop table
+
+-- DROP TABLE public.competence_apdiscipline;
+
+CREATE TABLE public.competence_apdiscipline (
+	competence int4 NOT NULL,
+	ac_plan int4 NOT NULL,
+	discipline int4 NOT NULL,
+	semestr bpchar(1) NULL,
+	CONSTRAINT competence_apdiscipline_fk FOREIGN KEY (ac_plan,discipline,semestr) REFERENCES public.ap_discipline(academic_plan,discipline,semestr),
+	CONSTRAINT competence_fk FOREIGN KEY (competence) REFERENCES public.competence(competence_id)
+);
+
+
+-- public.schedule definition
+
+-- Drop table
+
+-- DROP TABLE public.schedule;
+
+CREATE TABLE public.schedule (
+	schedule_id serial4 NOT NULL,
+	"group" int4 NOT NULL,
+	auditory int4 NULL,
+	tutor int4 NULL,
+	time_start time NOT NULL,
+	time_end time NOT NULL,
+	weekday varchar NOT NULL,
+	discipline int4 NOT NULL,
+	is_temp bit(1) NULL,
+	semestr varchar NOT NULL,
+	academic_plan int4 NOT NULL,
+	"date" date NOT NULL,
+	week_num bit(1) NOT NULL,
+	CONSTRAINT schedule_pk1 PRIMARY KEY (schedule_id),
+	CONSTRAINT academic_plan_fk FOREIGN KEY (academic_plan) REFERENCES public.academic_plan(plan_id) ON DELETE RESTRICT ON UPDATE CASCADE,
+	CONSTRAINT auditory_fk FOREIGN KEY (auditory) REFERENCES public.auditory(auditory_id) ON DELETE RESTRICT ON UPDATE CASCADE,
+	CONSTRAINT discipline_fk FOREIGN KEY (discipline) REFERENCES public.discipline(discipline_id) ON DELETE RESTRICT ON UPDATE CASCADE,
+	CONSTRAINT group_fk FOREIGN KEY ("group") REFERENCES public."group"(group_id) ON DELETE RESTRICT ON UPDATE CASCADE,
+	CONSTRAINT tutor_fk FOREIGN KEY (tutor) REFERENCES public.people(people_id) ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+
+-- public.ac_plan_view source
+
+CREATE OR REPLACE VIEW public.ac_plan_view
+AS SELECT ap.plan_id AS id,
+    d.document_name AS "Наименование",
+    ap.begin AS "Начало подготовки",
+    s.code AS "Шифр",
+    s.speciality_name AS "Специальность",
+    sf.study_form_name AS "Форма обучения",
+    g.group_name AS "Обучаемая группа"
+   FROM academic_plan ap
+     JOIN document d ON ap.document = d.document_id
+     JOIN "group" g ON ap."group" = g.group_id
+     JOIN speciality s ON g.speciality = s.speciality_id
+     JOIN study_form sf ON g.study_form = sf.study_form_id
+  ORDER BY ap.begin;
+
+
+-- public.all_news source
+
+CREATE OR REPLACE VIEW public.all_news
+AS SELECT to_json(array_agg(r.*)) AS all_news
+   FROM ( SELECT n.datenews,
+            n.news_header,
+            n.short_news,
+            n.long_news,
+            array_to_json(array_agg(ROW(i.image_name))) AS image
+           FROM news n
+             JOIN image_news img ON n.news_id = img.news
+             JOIN images i ON img.image = i.image_id
+          GROUP BY n.datenews, n.short_news, n.long_news, n.news_header
+          ORDER BY n.datenews DESC) r;
+
+
+-- public.ap source
+
+CREATE OR REPLACE VIEW public.ap
+AS SELECT ap.plan_id,
+    g.group_name,
+    s.code,
+    s.speciality_name,
+    d.departmentname,
+    d2.document_name,
+    ap.begin
+   FROM academic_plan ap
+     JOIN "group" g ON g.group_id = ap."group"
+     JOIN speciality s ON s.speciality_id = g.speciality
+     JOIN department d ON s.department = d.departmentid
+     JOIN document d2 ON d2.document_id = ap.document;
+
+
+-- public.four_news source
+
+CREATE OR REPLACE VIEW public.four_news
+AS SELECT to_json(array_agg(r.*)) AS four_news
+   FROM ( SELECT n.datenews,
+            n.news_header,
+            n.short_news,
+            n.long_news,
+            array_to_json(array_agg(ROW(i.image_name))) AS image
+           FROM news n
+             JOIN image_news img ON n.news_id = img.news
+             JOIN images i ON img.image = i.image_id
+          GROUP BY n.datenews, n.short_news, n.long_news, n.news_header
+          ORDER BY n.datenews DESC
+         LIMIT 4) r;
